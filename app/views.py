@@ -2,6 +2,8 @@ from flask import render_template
 from app import app
  
 
- @app.route('/')
- def index():
-     return render_template('index.html')
+@app.route('/')
+def index():
+
+    title='Pitch '
+    return render_template('index.html',title=title)
