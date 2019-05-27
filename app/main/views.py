@@ -7,32 +7,24 @@ from ..models import Pitch, User , Comment
 import markdown2  
 import datetime
 
-@main.route('/')
+@main.route('/',methods = ['GET','POST'])
 def index():
-    
-    title='Pitch '
-    return render_template('index.html',title=title)
 
-@main.route('/<uname>/new/pitch', methods = ['GET','POST'])
-@login_required
-def new_pitch(uname):
     form = PitchForm()
-    user = User.query.filter_by(username = uname).first()
 
     
     if form.validate_on_submit():
 
         pitch = form.pitch.data
-        category = form.categories.data
-        originalDate = datetime.datetime.now()
-        time = str(originalDate.time())
-        time =time[0:5]
-        date = str(originalDate)
-        date = date[0:10]
-        new_pitch= Pitch( content = pitch,user_id = user.id,time = time, date = date)
+        category = form.category.data
+       
+        new_pitch= Pitch(name=pitch,category=category)
         new_pitch.save_pitch()
         pitches = Pitch.query.all()
-    return render_template('new_pitch.html', new_form=form)
+    title='Pitch '
+    return render_template('index.html',title=title,new_form=form)
+
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()

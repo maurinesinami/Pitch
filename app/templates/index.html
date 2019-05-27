@@ -1,5 +1,8 @@
+{% import 'bootstrap/wtf.html' as wtf%}
+
 {% extends 'base.html'%}
-{% if current_user.is_authenticated %}
+{% block content %}
+
 {{wtf.quick_form(new_form)}}
-{%else%}
-{%endif%}
+
+{% endblock %}

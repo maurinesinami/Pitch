@@ -46,6 +46,11 @@ class Pitch(db.Model):
     name = db.Column(db.String(255))
     users = db.relationship("User", backref = "pitch", lazy = "dynamic")
     category = db.Column(db.String)
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commmit()
+
     def __repr__(self):
         return f'User {self.username}'
 class Comment(db.Model):
@@ -61,12 +66,10 @@ class Comment(db.Model):
 
     def save_comment(self):
         db.session.add(self)
-        db.session.commmit()
+        db.session.commit()
 
 def init_db():
     db.create_all()
-
-
     db.session.commit()
 
 if __name__ == '__main__':
