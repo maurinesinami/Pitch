@@ -2,6 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
+from datetime import datetime
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -11,6 +12,10 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
     pitches_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
+    password_secure = db.Column(db.String(255))
+    comments = db.relationship("Comment", backref="user", lazy = "dynamic")
     pass_hash = db.Column(db.String(255))
 
 @property
@@ -33,3 +38,26 @@ class Pitch(db.Model):
     category = db.Column(db.String)
     def __repr__(self):
         return f'User {self.username}'
+class Comment(db.Model):
+    
+    __tablename__= "comments"
+
+    id = db.Column(db.Integer,primary_key = True)
+    content = db.Column(db.String)
+    date = db.Column(db.String)
+    time = db.Column(db.String)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commmit()
+
+def init_db():
+    db.create_all()
+
+
+    db.session.commit()
+
+if __name__ == '__main__':
+    init_db()
