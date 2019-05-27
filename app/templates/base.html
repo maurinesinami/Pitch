@@ -1,26 +1,14 @@
 {% extends 'bootstrap/base.html'%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {%if title %}
-    <title>{{title}}</title>
-    {%else%}
-    <title>Pitch</title>
-    {%endif%}
-</head>
-<body>
-     <!-- Content block -->
+     {% block navbar %}
+     {% include 'navbar.html' %}
+     {% endblock %}
 
-     {% block content %}
+    
+     {%block styles %}
+     {{super()}}
+     {{ simplemde.css}}
+     {{ simplemde.js }}
+      {% endblock%}
+     
 
-     {% endblock%}
-     <!-- Navbar block  --> 
-    {% block navbar %}
-    {% include 'navbar.html' %}
-{% endblock %}
-</body>
-</html>
