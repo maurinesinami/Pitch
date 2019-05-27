@@ -5,10 +5,11 @@ from .. import db,photos
 from flask_login import login_required, current_user
 from ..models import Pitch, User , Comment
 import markdown2  
+import datetime
 
 @main.route('/')
 def index():
-
+    
     title='Pitch '
     return render_template('index.html',title=title)
 
