@@ -30,14 +30,15 @@ def index():
 def new_comment(id):
    pitch=Pitch.query.filter_by(id=id).first()
    form = CommentForm()
-   comment = Comment.query.filter_by(pitch_id=id).all()
+   comments = Comment.query.filter_by(pitch_id=id).all()
    if form.validate_on_submit():
        comment = form.comment.data
 
-       new_comment = Comment(content=comment)
+       new_comment = Comment(comment=comment)
        new_comment.save_comment()
    title = "COMMENTS"
-   return render_template('comments.html', comment=comment, comment_form=form, title=title,pitch=pitch)
+   return render_template('comments.html', comments=comments, comment_form=form, title=title, pitch=pitch)
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()

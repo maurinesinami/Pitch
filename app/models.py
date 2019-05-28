@@ -58,7 +58,7 @@ class Comment(db.Model):
     __tablename__= "comments"
 
     id = db.Column(db.Integer,primary_key = True)
-    content = db.Column(db.String)
+    comment = db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"))
 
@@ -67,7 +67,7 @@ class Comment(db.Model):
         db.session.commit()
 
 def init_db():
-    db.create_all()
+    db.session.add()
     db.session.commit()
 
 if __name__ == '__main__':

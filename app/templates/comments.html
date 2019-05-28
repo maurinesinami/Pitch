@@ -8,12 +8,12 @@
 {{pitch.name}}
 {% if current_user.is_authenticated %}
 {%for comment in comments%}
-
 {{comment.comment}}
- {%endfor%} 
+{%endfor%} 
 {{wtf.quick_form(comment_form)}}
 {% else %}
 {%endif%}
+
 
 
 </div>

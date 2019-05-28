@@ -4,11 +4,16 @@
 
 {% block content %}
 <div class = "container">
+    
 {% if current_user.is_authenticated %}
+<div class = "row">
 {%for pitch in pitches%}
+<div class = "col-md-4">
 <a href="/pitch/{{pitch.id}}">{{pitch.name}}</a>
 {{pitch.category}}
+</div>
 {%endfor%}
+    </div>
 {{wtf.quick_form(new_form)}}
 {% else %}
 {%endif%}
