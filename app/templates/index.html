@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class = "container">
-    
+    <div class = "jumbotron">
 {% if current_user.is_authenticated %}
 <div class = "row">
 {%for pitch in pitches%}
@@ -17,7 +17,7 @@
 {{wtf.quick_form(new_form)}}
 {% else %}
 {%endif%}
-
+</div>
 
 </div>
 {% endblock %}

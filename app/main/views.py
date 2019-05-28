@@ -31,6 +31,7 @@ def new_comment(id):
    pitch=Pitch.query.filter_by(id=id).first()
    form = CommentForm()
    comments = Comment.query.filter_by(pitch_id=id).all()
+   print(comments)
    if form.validate_on_submit():
        comment = form.comment.data
 
