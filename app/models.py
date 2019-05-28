@@ -49,7 +49,7 @@ class Pitch(db.Model):
 
     def save_pitch(self):
         db.session.add(self)
-        db.session.commmit()
+        db.session.commit()
 
     def __repr__(self):
         return f'User {self.username}'
@@ -59,8 +59,6 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     content = db.Column(db.String)
-    date = db.Column(db.String)
-    time = db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"))
 

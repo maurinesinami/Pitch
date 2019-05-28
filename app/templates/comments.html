@@ -4,12 +4,14 @@
 
 {% block content %}
 <div class = "container">
+
+{{pitch.name}}
 {% if current_user.is_authenticated %}
-{%for pitch in pitches%}
-<a href="/pitch/{{pitch.id}}">{{pitch.name}}</a>
-{{pitch.category}}
-{%endfor%}
-{{wtf.quick_form(new_form)}}
+{%for comment in comments%}
+
+{{comment.comment}}
+ {%endfor%} 
+{{wtf.quick_form(comment_form)}}
 {% else %}
 {%endif%}
 
