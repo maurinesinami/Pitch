@@ -1,13 +1,13 @@
-# Pitch-Perfect
+# Pitch
 
 ## Description
 This is an application that enables a user to post pitches and view other users' pitches. A user can log in to the application using their credentials, post comments and leave remarks on other people's pitches.
-### By Sauda Habib
+### By Maurine Sinami
 
 ## Setup/Installation Requirements
 
 ### Prerequisites
-* python3.6
+* python3.7
 * pip
 * Virtual environment(virtualenv)
 * Flask-Mail
@@ -16,13 +16,13 @@ This is an application that enables a user to post pitches and view other users'
 ## Cloning and running
 Clone the application using git clone(this copies the app onto your device). In your terminal:
 
-  ```  $ git clone https://github.com/saudahabib/pitch-perfect/```
+  ```  $ git clone https://github.com/maurinesinami/pitch/```
   
-  ```  $ cd pitch-perfect```
+  ```  $ cd pitch```
 
 ## Creating the virtual environment
 
-  ```  $ python3.6 -m venv --without-pip virtual```
+  ```  $ python3.7 -m venv --without-pip virtual```
   
   ```  $ source virtual/bin/env```
   
@@ -42,10 +42,10 @@ Clone the application using git clone(this copies the app onto your device). In 
 ## Testing the Application
 To run the tests for the class files:
 
-  ```  $ python3.6 manage.py test```
+  ```  $ python3.7 manage.py test```
 
 ## Technologies Used
-* Python 3.6
+* Python 3.7
 * Flask
 
 ## Behaviour driven development/ Specifications
@@ -53,7 +53,7 @@ To run the tests for the class files:
 | :------------- | :------------- |:---------|
 |   Post pitch     |     Pitch is saved in a database | Post from database|
 |Comment on pitch|Leave a comment| Comment saved for display|
-|Upvote or downvote pitch|Click on like or dislike|Reflects on likes and dislikes|
+
 |Login and authenticate|Email address and password|Saved and used for authentication|
 
 
@@ -61,6 +61,6 @@ To run the tests for the class files:
 Feel free to reach out to the developer at:
 
 * Mobile: 0714828944
-* Email: saudababs00@gmail.com
+* Email: maurine.sinami@gmail.com
 ## License
-MIT License Copyright (c) {2019} Sauda Habib Salim
+MIT License Copyright (c) {2019} Maurine Sinami
