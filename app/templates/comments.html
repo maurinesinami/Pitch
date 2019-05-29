@@ -4,16 +4,17 @@
 
 {% block content %}
 <div class = "container">
+<div class = "jumbotron">
+<h2>{{pitch.name}}</h2>
 
-{{pitch.name}}
 
-{% for comment in comments %}
-<p>{{ comment.comment }}</p>
+<h2>{% for comment in comments %}</h2>
+<h2>{{ comment.comment }}</h2>
 {%endfor%} 
 {{wtf.quick_form(comment_form)}}
 
 
-
+</div>
 
 </div>
 {% endblock %}

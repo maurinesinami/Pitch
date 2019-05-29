@@ -3,20 +3,39 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<div class = "container">
-    <div class = "jumbotron">
-{% if current_user.is_authenticated %}
-<div class = "row">
-{%for pitch in pitches%}
-<div class = "col-md-4">
-<a href="/pitch/{{pitch.id}}">{{pitch.name}}</a>
-{{pitch.category}}
+<body background="{{url_for('static',filename='photos/')}}"></body>
+
+<div class = "jumbotron" style="width:100%;background-color: black;color:white;">
+    <h1 class="text-center" style="font-family: 'Shadows Into Light', cursive;">WELCOME TO PITCHES 😀</h1>
+          
 </div>
-{%endfor%}
+
+<div class = "container">
+    <div class = "card-body">
+        
     </div>
+<div class="col-md-2"></div>
+<div class="col-md-10">
+    {%for pitch in pitches%}
+    <div class = "col-md-4" style="border:1px solid black;margin:4px;
+    border-radius:5px;border-bottom:3px solid black;" style="font-family: 'Shadows Into Light', cursive;">
+    <h2 style="font-family: 'Shadows Into Light', cursive;"><a href="/pitch/{{pitch.id}}">{{pitch.name}}</a></h2>
+    <h3 style="font-family: 'Shadows Into Light', cursive;">{{pitch.category}}</h3>
+    </div>
+    {%endfor%}
+<br><br>
+</div>
+<div class="col-md-0"></div>
+{% if current_user.is_authenticated %}
+
+<div class = "row">
+
+    </div>
+    <div class = "jumbotron" style="width:100%;background-color: black;color:white;font-family: 'Shadows Into Light', cursive;font-size: 20px;">
 {{wtf.quick_form(new_form)}}
 {% else %}
 {%endif%}
+</div>
 </div>
 
 </div>

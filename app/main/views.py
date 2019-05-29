@@ -9,7 +9,7 @@ import datetime
 
 @main.route('/',methods = ['GET','POST'])
 def index():
-
+    
     form = PitchForm()
 
     

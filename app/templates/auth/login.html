@@ -14,8 +14,11 @@
         </div>
       {% endfor %}
       <!-- Login form -->
+      <div class = "jumbotron" style="width:100%;background-color: black;color:white;font-family: 'Shadows Into Light', cursive;font-size: 20px;">
       {{wtf.quick_form(login_form)}}
+      
       <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
+      </div>
      </div>
      <div class="col-md-2"> </div>
     </div>
